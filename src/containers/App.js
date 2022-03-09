@@ -1,43 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBoundary from '../components/ErrorBoundary';
-import Header from '../components/Header';
+import MainPage from '../components/MainPage';
 import { requestRobots, setSearchField } from '../actions';
 
 import './App.css';
 
-const App = ({
-    robots,
-    searchField,
-    isPending,
-    onSearchChange,
-    onRequestRobots
-}) => {
-    useEffect(() => {
-       onRequestRobots();
-    }, [onRequestRobots]);
-
-    const filteredRobots = robots.filter((robot) =>
-        robot.name.toLowerCase().includes(searchField.toLowerCase())
+const App = (props) => {
+    return (
+        <MainPage {...props} />
     );
-
-    return isPending
-        ? <h1>Loading</h1>
-        : (
-            <div className='tc'>
-                <Header />
-                <SearchBox searchChange={onSearchChange} />
-                <Scroll>
-                    <ErrorBoundary>
-                        <CardList robots={filteredRobots} />
-                    </ErrorBoundary>
-                </Scroll>
-            </div>
-        );
 }
 
 const mapStateToProps = (state) => {

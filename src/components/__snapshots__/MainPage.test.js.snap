@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MainPage 1`] = `
+<div
+  className="tc"
+>
+  <Header />
+  <SearchBox
+    searchChange={[MockFunction]}
+  />
+  <Scroll>
+    <ErrorBoundary>
+      <CardList
+        robots={Array []}
+      />
+    </ErrorBoundary>
+  </Scroll>
+</div>
+`;
+
+exports[`renders MainPage when \`isPending\` is \`true\` 1`] = `
+<h1>
+  Loading
+</h1>
+`;
+
+exports[`renders filtered robots 1`] = `
+<div
+  className="tc"
+>
+  <Header />
+  <SearchBox
+    searchChange={[MockFunction]}
+  />
+  <Scroll>
+    <ErrorBoundary>
+      <CardList
+        robots={
+          Array [
+            Object {
+              "name": "Steve",
+            },
+            Object {
+              "name": "Stu",
+            },
+          ]
+        }
+      />
+    </ErrorBoundary>
+  </Scroll>
+</div>
+`;
